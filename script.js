@@ -10,7 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Tipo de documento:', documentType);
         console.log('Número de documento:', documentNumber);
 
-        // Aquí puedes agregar la lógica para enviar los datos al servidor
-        alert('Formulario enviado con éxito');
     });
 });

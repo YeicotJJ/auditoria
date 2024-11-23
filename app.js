@@ -1,5 +1,5 @@
 import { db } from './firebaseConfig.js';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from './firebase/firestore';
 
 // Función para guardar los datos en Firestore
 async function saveToFirestore() {
